@@ -13,8 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "vwt_cloud_meeting")
-public class CloudMeeting implements Serializable {
+@Table(name = "vwt_cloud_meet")
+public class CloudMeet implements Serializable {
 
     private static final long serialVersionUID = 3536855375264200130L;
 
@@ -24,16 +24,16 @@ public class CloudMeeting implements Serializable {
     private String id;
 
     /** 开会人员 */
-    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "meetingId")
-    private List<MeetingMember> meetingMembers;
+    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "meetId")
+    private List<MeetMember> meetMembers;
 
     /** 会议创建人，关联CloudPower中的userId */
     @Column(name = "creator_id")
     private String creatorId;
 
     /** 企会议类型：1即时会议，2预约会议 */
-    @Column(name = "meeting_type")
-    private String meetingType;
+    @Column(name = "meet_type")
+    private String meetType;
 
     /** 预约时间 */
     @Column(name = "order_time")

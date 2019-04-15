@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "vwt_cloud_member")
-public class MeetingMember implements Serializable {
+public class MeetMember implements Serializable {
 
     private static final long serialVersionUID = 326519822203933465L;
 
@@ -22,9 +22,9 @@ public class MeetingMember implements Serializable {
     @SequenceGenerator(name = "vwt_cloud_member_gen", sequenceName = "vwt_cloud_member_seq", allocationSize = 1)
     private Long id;
 
-    /** 会议id，关联到CloudMeeting中的meetingId */
-    @Column(name = "meeting_id")
-    private String meetingId;
+    /** 会议id，关联到CloudMeet中的id */
+    @Column(name = "meet_id")
+    private String meetId;
 
     /** 关联CloudPower中的userId */
     @Column(name = "user_id")
