@@ -1,5 +1,6 @@
 package com.yucong.cloudvideo.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -7,29 +8,23 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "vwt_cloud_meeting")
-public class CloudMeeting {
+public class CloudMeeting implements Serializable {
+
+    private static final long serialVersionUID = 3536855375264200130L;
 
     /** 主键 */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "vwt_cloud_meeting_gen")
-    @SequenceGenerator(name = "vwt_cloud_meeting_gen", sequenceName = "vwt_cloud_meeting_seq", allocationSize = 1)
-    private Long id;
-
     /** 会议id，由第三方提供 */
-    @Column(name = "meeting_id")
-    private String meetingId;
+    @Id
+    private String id;
 
     /** 开会人员 */
-    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "cloudMeetingId")
+    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "meetingId")
     private List<MeetingMember> meetingMembers;
 
     /** 会议创建人，关联CloudPower中的userId */
@@ -51,5 +46,4 @@ public class CloudMeeting {
     /** 创建时间 */
     @Column(name = "create_time")
     private Date createTime;
-
 }
