@@ -20,11 +20,15 @@ public class CloudPower {
     @SequenceGenerator(name = "vwt_cloud_power_gen", sequenceName = "vwt_cloud_power_seq", allocationSize = 1)
     private Long id;
 
-    /** 用户id，在后台配置 */
+    /** 用户id，通讯录获取 */
     @Column(name = "user_id")
     private String userId;
 
-    /** 企业id，在后台配置 */
+    /** 用户手机号，通讯录获取 */
+    @Column(name = "mobile")
+    private String mobile;
+
+    /** 企业id，通讯录获取 */
     @Column(name = "corp_id")
     private String corpId;
 
@@ -32,8 +36,16 @@ public class CloudPower {
     @Column(name = "token")
     private String token;
 
-    /** 修改时间 */
+    /** 创建时间 */
     @Column(name = "create_time")
     private Date createTime;
+
+    /** 虚拟号码 */
+    @Column(name = "virtual_mobile")
+    private String virtualMobile;
+
+    /** 虚拟用户id */
+    @Column(name = "virtaul_user_id")
+    private String virtaulUserId;
 
 }

@@ -31,19 +31,19 @@ public class CloudMeet implements Serializable {
     @Column(name = "creator_id")
     private String creatorId;
 
-    /** 企会议类型：1即时会议，2预约会议 */
+    /** 企会议类型：0预约会议，1即时会议 */
     @Column(name = "meet_type")
     private String meetType;
 
-    /** 预约时间 */
-    @Column(name = "order_time")
-    private Date orderTime;
-
-    /** 预约会议是否发出通知：0未通知，1已通知 */
-    @Column(name = "status")
-    private String status;
+    /** 是否发送过短信：0未发送，1已发送 */
+    @Column(name = "isMsg")
+    private String isMsg;
 
     /** 创建时间 */
     @Column(name = "create_time")
     private Date createTime;
+
+    /** 预约时间 */
+    @Column(name = "order_time")
+    private Date orderTime;
 }

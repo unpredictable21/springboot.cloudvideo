@@ -37,5 +37,5 @@ User.class：
 Address.class:
 			id
 			address
-			userId
+			userId	//此userId要默认对应user表中的id
 user表两个列名，address表三个列名

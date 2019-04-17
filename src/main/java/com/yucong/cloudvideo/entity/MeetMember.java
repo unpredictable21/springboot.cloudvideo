@@ -30,8 +30,8 @@ public class MeetMember implements Serializable {
     @Column(name = "user_id")
     private String userId;
 
-    /** 是否进入会议：0未进入，1已进入 */
-    @Column(name = "status")
-    private String status;
+    /** 此次会议角色：1主持人，2参会人 */
+    @Column(name = "role")
+    private String role;
 
 }
