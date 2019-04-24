@@ -12,6 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * 云视讯-会议实体类
+ *
+ */
 @Entity
 @Table(name = "vwt_cloud_meet")
 public class CloudMeet implements Serializable {
@@ -31,11 +35,11 @@ public class CloudMeet implements Serializable {
     @Column(name = "creator_id")
     private String creatorId;
 
-    /** 企会议类型：0预约会议，1即时会议 */
+    /** 企会议类型：0预约会议，1即时会议，2周期会议 */
     @Column(name = "meet_type")
     private String meetType;
 
-    /** 是否发送过短信：0未发送，1已发送 */
+    /** 预约会议是否发出通知：0未通知，1已通知，即时会议立即发送通知 */
     @Column(name = "isMsg")
     private String isMsg;
 
@@ -46,4 +50,61 @@ public class CloudMeet implements Serializable {
     /** 预约时间 */
     @Column(name = "order_time")
     private Date orderTime;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public List<MeetMember> getMeetMembers() {
+        return meetMembers;
+    }
+
+    public void setMeetMembers(List<MeetMember> meetMembers) {
+        this.meetMembers = meetMembers;
+    }
+
+    public String getCreatorId() {
+        return creatorId;
+    }
+
+    public void setCreatorId(String creatorId) {
+        this.creatorId = creatorId;
+    }
+
+    public String getMeetType() {
+        return meetType;
+    }
+
+    public void setMeetType(String meetType) {
+        this.meetType = meetType;
+    }
+
+    public String getIsMsg() {
+        return isMsg;
+    }
+
+    public void setIsMsg(String isMsg) {
+        this.isMsg = isMsg;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getOrderTime() {
+        return orderTime;
+    }
+
+    public void setOrderTime(Date orderTime) {
+        this.orderTime = orderTime;
+    }
+
 }
