@@ -48,6 +48,10 @@ public class CloudPower implements Serializable {
     @Column(name = "virtaul_user_id")
     private String virtaulUserId;
 
+    /** 是否删除：0未删除 1已删除 */
+    @Column(name = "is_del")
+    private String isDel;
+
     public Long getId() {
         return id;
     }
@@ -102,6 +106,14 @@ public class CloudPower implements Serializable {
 
     public void setVirtaulUserId(String virtaulUserId) {
         this.virtaulUserId = virtaulUserId;
+    }
+
+    public String getIsDel() {
+        return isDel;
+    }
+
+    public void setIsDel(String isDel) {
+        this.isDel = isDel;
     }
 
 }
