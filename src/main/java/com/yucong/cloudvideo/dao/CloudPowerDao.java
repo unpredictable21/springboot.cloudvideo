@@ -36,15 +36,16 @@ public interface CloudPowerDao extends JpaRepository<CloudPower, Long> {
     /**
      * 查询mobiles是否存在
      */
-    // @Query(nativeQuery = true, value = "select c.mobile from vwt_cloud_power c where c.mobile in
-    // (:mobiles) and c.is_del = '0'")
     @Query("select c.mobile from CloudPower c where c.mobile in (:mobiles) and c.isDel = '0'")
     List<String> findByMobiles(@Param("mobiles") List<String> mobiles);
 
-    // @Query(nativeQuery = true, value = "select c.virtaul_user_id from vwt_cloud_power c where
-    // c.virtaul_user_id in (:virtualIds) and c.is_del = '0'")
-
     @Query("select c.virtaulUserId from CloudPower c where c.virtaulUserId in (:virtualIds) and c.isDel = '0'")
     List<String> judgeVirtualIdIsExist(@Param("virtualIds") List<String> virtualIds);
+
+    /**
+     * 根据会议id查询参会人员信息，不包括发起人
+     */
+    @Query("select p from MeetMember m, CloudPower p where m.userId = p.userId and m.meetId = :meetId and m.role = '2' and p.isDel = '0'")
+    List<CloudPower> findByMeetId(@Param("meetId") String meetId);
 
 }
