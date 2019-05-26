@@ -4,9 +4,9 @@ user表，address表，一对多
 User.class：
 			id
 			name
-			@OneToMany
-			@JoinColumn("user_id")
-			List<Address>
+		    @OneToMany
+		    @JoinColumn(name = "user_id")
+		    List<Address> addresses;
 Address.class:
 			id
 			address
@@ -37,5 +37,5 @@ User.class：
 Address.class:
 			id
 			address
-			userId	//此userId要默认对应user表中的id
+			userId	//生成的address表后，此userId会默认关联到user表中的id
 user表两个列名，address表三个列名
